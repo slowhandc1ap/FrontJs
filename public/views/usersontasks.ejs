@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>USER Taks</h1>
+    <center>
+    
+    <table>
+        <tr>
+            
+            <th>Title</th>
+            <th>discription</th>
+            <th>duedate</th>
+            <th>type_id</th>
+
+            
+        </tr>
+        
+            <tr>
+                <% for (let i =0; i< data.length; i++) { %>
+                <td><%= data[i].title %></td>
+                <td><%= data[i].discription %></td>
+                <td><%= data[i].duedate %></td>
+                <td><%= data[i].type_id %></td>
+            </tr>
+            <% } %>
+       
+    </table></center>
+    <br><br>
+    <a href="/users">Go to Users</a>
+    <a href=""></a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Types</h1>
+    <center>
+    <table>
+        <tr>
+            <th>Type ID</th>
+            <th>Category</th>
+            <th>Total Task</th>
+            <th>Action</th>
+        </tr>
+        <% for(var i=0; i<types.length; i++) { %>
+        <tr>
+            <td><%= types[i].type_id %></td>
+            <td><%= types[i].category %></td>
+            <td><%= types[i].totalTask %></td>
+            <td>
+                <a href="/taskontype/<%= types[i].type_id %>">View</a>
+                <a href="/updateTypes/<%= types[i].type_id %>">Edit</a>
+                <a href="/deleteTypes/<%= types[i].type_id %>">Delete</a>
+            </td>
+        </tr>    
+        <%} %>
+    </table></center>
+    <a href="/createTypes">createType</a>
+    <a href="/">Go to Task</a>
+    <a href=""></a>
+</body>
+</html>

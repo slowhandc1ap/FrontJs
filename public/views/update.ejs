@@ -1,0 +1,29 @@
+<!--update.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update task</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h1>Update Task</h1>
+        <form method="post" action="/update/ <%= task.task_id %>">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= task.title %>">
+            <br>
+            <label for="discription">Dicsripton</label>
+            <input type="text" id="discription" name="discription" value="<%= task.discription %>">
+            <br>
+            <label for="duedate">duedata</label>
+            <input type="text" id="duedate" name="duedate"value="<%= task.duedate %>">
+            <br>
+            <label for="type_id">type_id</label>
+            <input type="text" id="type_id" name="type_id"value="<%= task.type_id %>">
+            <br>
+            <input type="submit" value="update">
+        </form>
+        <a href="/task/<%= task.task_id %>">View</a>
+        <a href="/delete/<%= task.task_id %>">Delete</a>
+        <a href="/">Back to list</a>
+    </body>
+</html>

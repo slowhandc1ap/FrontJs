@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>TaskOnType</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <h1>All Task In Type</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>discription</th>
+            <th>duedata</th>
+            
+        </tr>
+        <tr>
+            <% for (let i =0; i< data.length; i++) { %>
+            <td><%= data[i].title %></td>
+            <td><%= data[i].discription %></td>
+            <td><%= data[i].duedate %></td>
+           
+            
+        </tr>
+        <% } %>
+    </table>
+    <a href="/types">Back to List</a>
+</body>

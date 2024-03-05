@@ -1,0 +1,49 @@
+<!--tasks.ejs-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tasks</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <h1>Tasks</h1>
+    <center><table>
+    
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Dicsripton</th>
+            <th>duedata</th>
+            <th>type_id</th>
+            <th>Action</th>
+        </tr>
+        <% for(var i=0; i< tasks.length; i++){ %>
+        <tr>
+            <td><%= tasks[i].task_id %></td>
+            <td><%= tasks[i].title %></td>
+            <td><%= tasks[i].discription %></td>
+            <td><%= tasks[i].duedate %></td>
+            <td><%= tasks[i].type_id %></td>
+            
+            <td>
+                
+                <a href="/tasks/<%= tasks[i].task_id %>">View</a>
+                <a href="/update/<%= tasks[i].task_id %>">Edit</a>
+                <a href="/delete/<%= tasks[i].task_id %>">Delete</a> 
+               
+            </td>
+            
+        </tr>
+        
+    <% } %> 
+</center></table>
+<br>
+    <a href="/create">create new tasks</a>
+    <a href="/types">Go to type</a>
+    <a href="/users">View User</a>
+    <a href="/assignments">Assign Task to user</a> 
+</body>
+</html>

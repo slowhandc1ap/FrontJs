@@ -1,0 +1,31 @@
+<!--create.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Task</title>
+        <link rel="stylesheet" href="/css/style.css">
+
+    </head>
+    <body>
+        <h1>Create Task</h1>
+        <form method="post" action="/create">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+            <br>
+            <br>
+            <label for="discription">Dicsripton</label>
+            <input type="text" id="discription" name="discription">
+            <br>
+            <br>
+            <label for="duedate">duedata</label>
+            <input type="text" id="duedate" name="duedate">
+            <br>
+            <br>
+            <label for="type_id">type_id</label>
+            <input type="text" id="type_id" name="type_id">
+            <br>
+            <br>
+            <input type="submit" value="create">
+        </form>
+    </body>
+</html>

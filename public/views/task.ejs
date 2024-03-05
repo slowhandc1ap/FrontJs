@@ -1,0 +1,18 @@
+<!--task.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task</title>
+        <link rel="stylesheet" href="/css/style.css">
+        
+    </head>
+    <body>
+        <table>
+        <h1><%= task.title %></h1>
+        <p>discription: <%= task.discription %></p>
+        </table>
+
+        <a href="/update/<%= task.task_id %>">Edit</a>
+        <a href="/delete/<%= task.task_id %>">Delete</a>
+    </body>
+</html>

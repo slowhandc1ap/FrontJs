@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update assignments</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h1>Update assignments</h1>
+        <form method="post" action="/updateAssign/<%= assignments.assign_id %>">
+            <label for="task_id">TASK_ID</label>
+            <input type="text" id="task_id" name="task_id" value="<%= assignments.task_id %>">
+            <label for="user_id">USER ID</label>
+            <input type="text" id="user_id" name="user_id" value="<%= assignments.user_id %>">
+            <br>
+    
+            <input type="submit" value="updateAssign">
+        </form>
+        <a href="/assignments">View List</a>
+    </body>
+</html>

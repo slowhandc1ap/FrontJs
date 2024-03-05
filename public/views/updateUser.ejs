@@ -1,0 +1,28 @@
+<!--update.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update User</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h1>Update User</h1>
+        <form method="post" action="/updateUser/<%= users.user_id %>">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="<%= users.username %>">
+            <br>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" value="<%= users.email %>">
+            <br>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password"value="<%= users.password %>">
+            <br>
+            
+            <br>
+            <input type="submit" value="update">
+        </form>
+        <a href="/users">View Users</a>
+        <a href="/deleteUser/<%= users.user_id %>">Delete</a>
+        <a href="/">Back to list</a>
+    </body>
+</html>

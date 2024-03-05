@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Types</title>
+        <link rel="stylesheet" href="/css/style.css">
+
+    </head>
+    <body>
+        <h1>Update Types</h1>
+        <form method="post" action="/updateTypes/<%= types.type_id %>">
+            <label for="category">category</label>
+            <input type="text" id="category" name="category" value="<%= types.category %>">
+            <br>
+    
+            <input type="submit" value="updateType">
+
+        </form>
+        <a href="/types">View List</a>
+        <a href="/deleteTypes/<%= types.type_id %>">Delete</a>
+    </body>
+</html>
