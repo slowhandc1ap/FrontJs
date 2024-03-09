@@ -1,0 +1,17 @@
+// Get references to elements
+const userDropdown = document.getElementById('userDropdown');
+const userAssignmentsList = document.getElementById('userAssignments');
+
+// Add event listener to dropdown
+userDropdown.addEventListener('change', () => {
+    const userId = userDropdown.value;
+    userAssignmentsList.innerHTML = ''; // Clear existing assignments
+    assignments.forEach(assignment => {
+        if (assignment.user_id === userId) {
+            const task = tasks.find(task => task.task_id === assignment.task_id);
+            const listItem = document.createElement('li');
+            listItem.textContent = task ? task.title : 'N/A'; // Set task title or 'N/A' if task not found
+            userAssignmentsList.appendChild(listItem); // Append list item to userAssignmentsList
+        }
+    });
+});

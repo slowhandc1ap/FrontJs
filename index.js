@@ -20,11 +20,16 @@ app.use(express.static(__dirname + "/public"));
 app.get("/",async (req ,res) => {
   try {
     const response = await axios.get(base_url + "/tasks");
-    res.render("tasks", { tasks : response.data});
+    const typesResponse = await axios.get(base_url + '/types');
+    
+    res.render("tasks", {
+      tasks: response.data,
+      types: typesResponse.data // Pass types data to the template
+    });
 
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error")
+    res.status(500).send("Error 500")
   }
 });
 
@@ -41,8 +46,9 @@ app.get("/tasks/:task_id", async (req, res) => {
   }
 });
 
-app.get("/create", (req ,res) => {
-  res.render("create");
+app.get("/create",async (req ,res) => {
+  const typesResponse = await axios.get(base_url + '/types');
+    res.render("create", { types: typesResponse.data });
 })
 
 //link new task form back - end
@@ -61,6 +67,7 @@ app.post("/create", async (req,res) => {
 app.get("/taskontype/:type_id", async (req,res) => {
   try {
     const response = await axios.get(base_url + "/tasksintypes/" + req.params.type_id);
+    
     res.render("taskontype", {data: response.data});
   } catch(err) {
     console.error(err);
@@ -183,8 +190,13 @@ app.get('/users',async(req,res) => {
 //link page taks in task from usersontypes in backend
 app.get("/usersontasks/:user_id", async (req,res) => {
   try {
-    const response = await axios.get(base_url + "/usersontasks/" + req.params.user_id);
-    res.render("usersontasks", {data: response.data});
+    const tasksResponse = await axios.get(base_url + "/usersontasks/" + req.params.user_id);
+    const typesResponse = await axios.get(base_url + '/types');
+    
+    res.render("usersontasks", {
+      data: tasksResponse.data,
+      types: typesResponse.data // Pass types data to the template
+    });
   } catch(err) {
     console.error(err);
     res.status(500).send("Error");
@@ -248,7 +260,13 @@ app.get("/deleteUser/:user_id", async (req,res) => {
 app.get('/assignments',async(req,res) => {
   try {
     const response = await axios.get(base_url + '/assignments');
-    res.render("assignments" , {assignments: response.data});
+    const taskRes = await axios.get(base_url + '/tasks');
+    const userRes = await axios.get(base_url + '/users');
+    res.render("assignments", {
+      assignments: response.data,
+      tasks: taskRes.data,
+      users: userRes.data
+  });
   }catch (err) {
     console.error(err);
     res.status(500).send("Error")
@@ -291,8 +309,10 @@ app.get("/deleteAssign/:assign_id", async (req,res) => {
 });
 
 
-app.get("/createAssign", (req,res) => {
-  res.render("createAssign");
+app.get("/createAssign", async(req,res) => {
+  const taskRes = await axios.get(base_url + '/tasks');
+  const userRes = await axios.get(base_url + '/users');
+  res.render("createAssign", {tasks: taskRes.data,users: userRes.data});
 });
 
 //link page create types form back end
@@ -303,9 +323,12 @@ app.post("/createAssign",async (req, res) => {
     res.redirect("/assignments");
   }catch (err) {
     console.error(err);
-    res.status(500).send("Error");
+    res.status(500).send("Error Exit alrady");
   }
 });
+
+
+
 
 app.listen(5500 , () => {
   console.log("Server started on port 5500");
