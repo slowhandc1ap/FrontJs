@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 body {
-  background-color: #f7f7f7;
+  background-color: rgb(255, 255, 255);
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -27,6 +27,12 @@ div.table-title {
    text-transform:uppercase;
    
 }
+p {
+  margin: 10px;
+}
+h1 {
+  text-align: center;
+}
 
 
 /*** Table Styles **/
@@ -44,7 +50,7 @@ div.table-title {
 }
  
 th {
-  color:#D5DDE5;;
+  color:#dbe5d5;;
   background:#1b1e24;
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
